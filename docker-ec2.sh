@@ -9,4 +9,4 @@ aws ec2 run-instances \
       --instance-type $INSTANCE_TYPE \
       --security-group-ids $SG_ID \
       --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=docker-instructions},
-          {Key=Environment,Value=dev}]"
+          {Key=Environment,Value=dev}, {Key=CreatedBy,Value=shell-script}]"
