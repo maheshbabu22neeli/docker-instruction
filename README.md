@@ -21,16 +21,3 @@ CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 `````
 
 
-## Docker Commands
-``` shell
-`docker ps` - List all running containers/instances
-`docker ps -a` - List all containers/instances (including stopped ones)
-`docker images` - List all docker images
-`docker pull <image-name>` - Pull a docker image from docker hub, ex: `docker pull nginx`
-`docker create <image-name>` - Will not create a running container. It creates a container in a stopped state., ex: `docker create nginx`
-`docker start <container-id>` - Start a container, ex: `docker start 1a2b3c4d5e6f`
-`docker run <image-name>` - Pull + Create + start a container in one command, ex: `docker run nginx`
-`docker rm <container-id>` - Remove the container, ex: `docker rm 1a2b3c4d5e6f`
-`docker rm <container-id> -f` - If container already running, Remove it forcefully, ex: `docker rm 1a2b3c4d5e6f -f`
-`docker rmi <image-name>` - Remove a docker image, ex: `docker rmi nginx`
-```
