@@ -45,7 +45,15 @@ ex: `docker exec -it frontend bash`, `docker stop frontend`
 - Dockerfile is a text file that contains the instructions to build our own docker image.
 - We can create our own docker image by writing a Dockerfile and then building it using `docker build` command.
 
+- docker hub login `docker login -u <username> -p <password>` - This command will login to docker hub using the provided username and password.
+
 ### FROM
 - `FROM` is used to specify the base OS for our docker image. It is the first instruction in a Dockerfile.
 - `docker build -t from:1.0.0 .` - This command will build a docker image with the name "from" and tag "1.0.0" using the Dockerfile present in the current directory (.)
+- `docker tag from:1.0.0 <username>/from:1.0.0` - This command will tag the docker image "from:1.0.0" with the name "<username>/from:1.0.0" so that we can push it to docker hub.
+- `docker push <username>/from:1.0.0` - This command will push the docker image "from:1.0.0" to docker hub under the specified username.
+
+
+### RUN
+- `RUN` is used to install packages or configure images and execute a command during the build process of the docker image.
 - 
