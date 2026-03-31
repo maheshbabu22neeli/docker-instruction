@@ -56,4 +56,4 @@ ex: `docker exec -it frontend bash`, `docker stop frontend`
 
 ### RUN
 - `RUN` is used to install packages or configure images and execute a command during the build process of the docker image.
-- 
+- ex: `RUN apt-get update && apt-get install -y nginx` - This command will update the package list and install nginx inside the docker image during the build process.
