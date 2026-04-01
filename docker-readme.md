@@ -8,7 +8,7 @@
 `docker pull <image-name>` - Pull a docker image from docker hub, ex: `docker pull nginx`
 `docker create <image-name>` - Will not create a running container. It creates a container in a stopped state., ex: `docker create nginx`
 `docker start <container-id>` - Start a container, ex: `docker start 1a2b3c4d5e6f`
-`docker run <image-name>` - Pull + Create + start a container in one command, ex: `docker run nginx`
+`docker run <image-name>` -  a container in one command, ex: `docker run nginx`
 `docker rm <container-id>` - Remove the container, ex: `docker rm 1a2b3c4d5e6f`
 `docker rm <container-id> -f` - If container already running, Remove it forcefully, ex: `docker rm 1a2b3c4d5e6f -f`
 `docker rmi <image-name>` - Remove a docker image, ex: `docker rmi nginx`
@@ -57,3 +57,10 @@ ex: `docker exec -it frontend bash`, `docker stop frontend`
 ### RUN
 - `RUN` is used to install packages or configure images and execute a command during the build process of the docker image.
 - ex: `RUN apt-get update && apt-get install -y nginx` - This command will update the package list and install nginx inside the docker image during the build process.
+
+### CMD
+- `CMD` is used to specify the command that will be executed when a container is run. It will not execute during the build process,
+it will execute when we run the container using `docker run` command.
+
+
+### RUN vs CMD
