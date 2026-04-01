@@ -64,3 +64,8 @@ it will execute when we run the container using `docker run` command.
 
 
 ### RUN vs CMD
+
+### LABEL
+- `LABEL` is used to add metadata to the docker image. It is a key-value pair that can be used to describe the image, like author, version, description, etc.
+- ex: `LABEL maintainer="John Doe" version="1.0.0" description="This is a sample docker image"` - This command will add the specified metadata to the docker image.
+
