@@ -80,3 +80,10 @@ it will execute when we run the container using `docker run` command.
 - Access : `http://localhost:80` or `http://<host-ip>:80`
 - Run : `docker run -d -p 8080:80 expose:1.0.0`
 - Access : `http://localhost:8080` or `http://<host-ip>:8080`
+
+### ENV
+- `ENV` this instruction sets an environment variable that a running container will use.
+- `ENV APP_ENV=dev \
+    APP_DEBUG=false \
+    DOCKER=true`
+- 
