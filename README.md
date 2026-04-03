@@ -4,7 +4,16 @@ This repo explains each instruction from the docker file
 
 ## Pre-requisites
 1. We will use EC2 instance to run our docker containers. `./docker-ec2.sh` will create an EC2 instance.
-2. Now install docker in Ec2 instance
+2. Now install docker in Ec2 instance 
+
+## Increase /var for docker
+```shell
+lsblk  -> to see the available disks and partitions
+sudo growpart /dev/nvme0n1 4  -> to resize the existing partition to fill the available space
+sudo lvextend -L +30G /dev/RootVG/varVol  -> to extend the /var logical volume by 30GB
+sudo xfs_growfs /var  -> to resize the /var filesystem to utilize the additional space
+df -hT -> to verify the new size of /var
+```
 ```bash
 sudo dnf -y install dnf-plugins-core
 sudo dnf config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo

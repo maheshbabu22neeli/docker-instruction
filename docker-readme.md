@@ -68,4 +68,10 @@ it will execute when we run the container using `docker run` command.
 ### LABEL
 - `LABEL` is used to add metadata to the docker image. It is a key-value pair that can be used to describe the image, like author, version, description, etc.
 - ex: `LABEL maintainer="John Doe" version="1.0.0" description="This is a sample docker image"` - This command will add the specified metadata to the docker image.
+- ex: `docker images --filter "LABEL=AUTHOR=MAHESH BABU"` - This command will filter the docker images based on the specified label.
 
+
+### EXPOSE
+- `EXPOSE` is used to specify the port on which the application inside the container will run.
+It is used for documentation purposes and does not actually publish the port.
+- ex: `EXPOSE 80` - This command will specify that the application inside the container will run on port
