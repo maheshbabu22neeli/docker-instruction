@@ -72,6 +72,6 @@ it will execute when we run the container using `docker run` command.
 
 
 ### EXPOSE
-- `EXPOSE` is used to specify the port on which the application inside the container will run.
-It is used for documentation purposes and does not actually publish the port.
-- ex: `EXPOSE 80` - This command will specify that the application inside the container will run on port
+- `EXPOSE` is useful to display the port information of the container.
+  It will not really open the port, but provides information only to the users about which port the application inside the container is running on as a good practise.
+- ex: `EXPOSE 8080`
