@@ -105,3 +105,6 @@ ex: [ ec2-user@ip-172-31-65-245 ~/docker-instruction/ENV ]$ docker exec -it f1 b
   _=/usr/bin/env
   ````
 
+### COPY
+- `COPY` this instruction tells the builder to copy files from the host and put them into the container image.
+- ex: `COPY index.html /usr/share/nginx/html/` - This command will copy the index.html file from the host machine to container.
