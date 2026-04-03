@@ -73,5 +73,10 @@ it will execute when we run the container using `docker run` command.
 
 ### EXPOSE
 - `EXPOSE` is useful to display the port information of the container.
-  It will not really open the port, but provides information only to the users about which port the application inside the container is running on as a good practise.
-- ex: `EXPOSE 8080`
+  It will not really open the port, but provides information only to the users about which port the application inside the container is running on, and as a good practise.
+- ex: `EXPOSE 80`
+- Build : `docker build -t expose:1.0.0 .`
+- Run : `docker run -d -p 8080:80 expose:1.0.0`
+- Now you can access the application running inside the container on port 8080 of the host machine, ex: `http://localhost:8080`
+- - Run : `docker run -d -p 80:80 expose:1.0.0`
+- Now you can access the application running inside the container on port 8080 of the host machine, ex: `http://localhost:80`

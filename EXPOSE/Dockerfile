@@ -4,6 +4,6 @@ RUN dnf install nginx -y
 LABEL COURSE="Docker for Beginners" \
       AUTHOR="MAHESH BABU"
 
-EXPOSE 80
+EXPOSE 8080
 
 CMD ["nginx", "-g", "daemon off;"]
