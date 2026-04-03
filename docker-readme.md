@@ -124,3 +124,19 @@ root@b9db6cdb126d:/usr/share/nginx/html#
 - `ADD` this instruction is similar to COPY, but it has some 2 additional features:
 1. It can fetch the content directly from Internet. 
 2. It can extract the compressed files (like .tar, .tar.gz) while copying to the container.
+```shell
+
+[ ec2-user@ip-172-31-65-245 ~/docker-instruction/ADD ]$ docker exec -it 95 bash
+root@950948adace4:/# cd /tmp
+root@950948adace4:/tmp# ls -la
+total 4
+drwxrwxrwt 1 root   root     24 Apr  3 06:48 .
+drwxr-xr-x 1 root   root     39 Apr  3 06:48 ..
+-rw------- 1 root   root   1209 Jan  1  1970 README.md
+drwxr-xr-x 2 197609 197609   40 Apr  3 06:46 sample-dir
+root@950948adace4:/tmp# cd sample-dir/
+root@950948adace4:/tmp/sample-dir# ls
+file1.txt  file2.txt
+root@950948adace4:/tmp/sample-dir#
+
+```
