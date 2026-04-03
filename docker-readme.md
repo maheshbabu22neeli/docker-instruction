@@ -39,6 +39,8 @@ Now invoke the same uRL in browser as `http://3.237.39.73:8080/index.html`
 - `docker run -d -p 80:80 --name frontend nginx` - This command will run the container in detached mode, map port 80 of host to port 80 of container
 and give the name "frontend" to the container. So you can access the container using its name instead of container ID, 
 ex: `docker exec -it frontend bash`, `docker stop frontend`
+- `docker ps -a -q` - This command will list all the container ID's
+- `docker rm -f `docker ps -a -q`` - This command will forcefully remove all the containers, ex: `docker rm -f $(docker ps -a -q)`
 
 
 ## Dockerfile
@@ -108,3 +110,17 @@ ex: [ ec2-user@ip-172-31-65-245 ~/docker-instruction/ENV ]$ docker exec -it f1 b
 ### COPY
 - `COPY` this instruction tells the builder to copy files from the host and put them into the container image.
 - ex: `COPY index.html /usr/share/nginx/html/` - This command will copy the index.html file from the host machine to container.
+```shell
+$ docker exec -it b9 bash
+root@b9db6cdb126d:/# cd /usr/share/nginx/html/
+root@b9db6cdb126d:/usr/share/nginx/html# ls
+50x.html  index.html
+root@b9db6cdb126d:/usr/share/nginx/html# cat index.html
+<h1> I am from COPY instruction </h1>root@b9db6cdb126d:/usr/share/nginx/html#
+root@b9db6cdb126d:/usr/share/nginx/html#
+```
+
+### ADD
+- `ADD` this instruction is similar to COPY, but it has some 2 additional features:
+1. It can fetch the content directly from Internet. 
+2. It can extract the compressed files (like .tar, .tar.gz, .zip) while copying to the container.
