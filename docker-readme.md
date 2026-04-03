@@ -123,4 +123,4 @@ root@b9db6cdb126d:/usr/share/nginx/html#
 ### ADD
 - `ADD` this instruction is similar to COPY, but it has some 2 additional features:
 1. It can fetch the content directly from Internet. 
-2. It can extract the compressed files (like .tar, .tar.gz, .zip) while copying to the container.
+2. It can extract the compressed files (like .tar, .tar.gz) while copying to the container.
