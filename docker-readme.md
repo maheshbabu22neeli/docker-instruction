@@ -86,4 +86,22 @@ it will execute when we run the container using `docker run` command.
 - `ENV APP_ENV=dev \
     APP_DEBUG=false \
     DOCKER=true`
-- 
+- After build and run, we can see the env variables by using `docker exec -it f1 bash`
+````
+ex: [ ec2-user@ip-172-31-65-245 ~/docker-instruction/ENV ]$ docker exec -it f1 bash
+  [root@f1341aa3cb8f /]# env
+  HOSTNAME=f1341aa3cb8f
+  PWD=/
+  HOME=/root
+  LANG=C.utf8
+  APP_ENV=dev
+  APP_DEBUG=false
+  TERM=xterm
+  LESSOPEN=||/usr/bin/lesspipe.sh %s
+  SHLVL=1
+  DOCKER=true
+  DEBUGINFOD_IMA_CERT_PATH=/etc/keys/ima:
+  PATH=/root/.local/bin:/root/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin 
+  _=/usr/bin/env
+  ````
+
