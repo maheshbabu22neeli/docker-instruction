@@ -181,3 +181,17 @@ It is the directory where all the commands will be executed inside the container
 So all the commands will be executed inside the /app directory of the container.
 - If the specified directory does not exist, it will be created automatically. 
 So we don't need to worry about creating the directory before setting it as the working directory.
+
+
+### ARG
+- `ARG` this instruction can be first instruction in the docker file to supply the version for base image.
+- `ARG` cannot access at runtime, it is only used at build image.
+- `ARG` is used to define a variable that can be passed at build time to the Dockerfile.
+- ex: `ARG VERSION=1.0.0` - This command will define an argument named VERSION with a default value of 1.0.0
+- We can override the default value of the argument at build time by using `--build-arg` flag with the `docker build` command.
+- ex: `docker build -t arg:1.0.0 --build-arg VERSION=9 .`
+- ex: 
+```dockerfile
+ARG VERSION
+FROM almalinux:${VERSION}
+```
