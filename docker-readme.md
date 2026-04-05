@@ -140,3 +140,30 @@ file1.txt  file2.txt
 root@950948adace4:/tmp/sample-dir#
 
 ```
+
+### ENTRYPOINT
+- `ENTRYPOINT` is used to provide the command executed by the container when it is started.
+- It is so similar to CMD command but we can override `CMD` at runtime, where as `ENTRYPOINT` is not overridden at runtime.
+- For best results we can use both `ENTRYPOINT` and `CMD` together in a Dockerfile.
+The `ENTRYPOINT` will specify the executable to run, and the `CMD` will provide the default arguments to that executable.
+This way, we can override the arguments at runtime without changing the executable.
+```shell
+FROM nginx
+
+# CMD ["ping", "google.com"]
+# this CMD can be override by passing the RUN command as `docker run <image_name> ping facebook.com`.
+
+# ENTRYPOINT ["ping", "google.com"]
+# this can't be overfide and if we try to override it adds as an argument to the entrypoint.
+# For example, `docker run <image_name> ping google.com`
+# It will take the ENTRY POINT coomand as `ping google.com ping facebook.com`.
+
+CMD ["google.com"]
+
+ENTRYPOINT ["ping"]
+# This will work as the entry point is ping and the CMD is google.com, so it will run `ping google.com`.
+# docker run <image_name> facebook.com
+# This will run `ping facebook.com` as the entry point is ping and the CMD is facebook.com.
+```
+
+### 
