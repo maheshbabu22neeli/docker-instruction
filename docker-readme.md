@@ -172,3 +172,12 @@ ENTRYPOINT ["ping"]
 - ex: `USER roboshop` - This command will set the user as roboshop to run the container. So all the commands will be executed as nginx user inside the container.
 - If we want to switch back to root user, we can use `USER root` command in the Dockerfile.
 - This avoids the security risks of running the container as root user, and also it is a good practice to run the container with a non-root user.
+
+
+### WORKDIR
+- `WORKDIR` this instruction is used to set the working directory for the container.
+It is the directory where all the commands will be executed inside the container.
+- ex: `WORKDIR /app` - This command will set the working directory as /app inside the container.
+So all the commands will be executed inside the /app directory of the container.
+- If the specified directory does not exist, it will be created automatically. 
+So we don't need to worry about creating the directory before setting it as the working directory.
