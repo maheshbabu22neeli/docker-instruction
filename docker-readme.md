@@ -166,4 +166,9 @@ ENTRYPOINT ["ping"]
 # This will run `ping facebook.com` as the entry point is ping and the CMD is facebook.com.
 ```
 
-### 
+### USER
+- We never use root user to run the container.
+- `USER` this instruction is used to specify the user that will be used to run the container.
+- ex: `USER roboshop` - This command will set the user as roboshop to run the container. So all the commands will be executed as nginx user inside the container.
+- If we want to switch back to root user, we can use `USER root` command in the Dockerfile.
+- This avoids the security risks of running the container as root user, and also it is a good practice to run the container with a non-root user.
