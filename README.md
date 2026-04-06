@@ -230,6 +230,53 @@ FROM almalinux:${VERSION}
 ### ONBUILD
 - `ONBUILD` - when our image is used by someone else and want to put some conditions to use our image. 
 - That can be enforced using `ONBUILD` instruction
-- 
+```shell
+44.211.29.5 | 172.31.66.223 | t3.micro | https://github.com/maheshbabu22neeli/docker-instruction.git
+[ ec2-user@ip-172-31-66-223 ~/docker-instruction/ONBUILD ]$ docker build -t onbuild:1.0.0 .
+[+] Building 21.6s (7/7) FINISHED                                                                                                                                      docker:default
+=> [internal] load build definition from Dockerfile                                                                                                                             0.0s
+=> => transferring dockerfile: 272B                                                                                                                                             0.0s
+=> [internal] load metadata for docker.io/library/almalinux:9                                                                                                                   0.5s
+=> [internal] load .dockerignore                                                                                                                                                0.0s
+=> => transferring context: 2B                                                                                                                                                  0.0s
+=> [1/3] FROM docker.io/library/almalinux:9@sha256:4a0e47249512fbc4f45be312e890f9159db68065c705bf8c5768c060aa60d90d                                                             3.8s
+=> => resolve docker.io/library/almalinux:9@sha256:4a0e47249512fbc4f45be312e890f9159db68065c705bf8c5768c060aa60d90d                                                             0.0s
+=> => sha256:beea1bb1f73fd62f6e65630b4102709e64aad764dd5cd5ab46837dfb832e93e6 70.40MB / 70.40MB                                                                                 0.9s
+=> => extracting sha256:beea1bb1f73fd62f6e65630b4102709e64aad764dd5cd5ab46837dfb832e93e6                                                                                        2.8s
+=> [2/3] RUN dnf install nginx -y                                                                                                                                              10.6s
+=> [3/3] RUN rm -rf /usr/share/nginx/html/index.html                                                                                                                            0.5s
+=> exporting to image                                                                                                                                                           5.8s
+=> => exporting layers                                                                                                                                                          4.9s
+=> => exporting manifest sha256:8f4e912d5a6911755a0472a06d0e916fa10580f1a3160eb58ec4a9b11b8a3efa                                                                                0.0s
+=> => exporting config sha256:4ba92dec77b13d036a3321c0b8d14c3af0edfc84020cb1663887c24bbc076c98                                                                                  0.0s
+=> => exporting attestation manifest sha256:6db2eb6110b67599ef68ecdc4f50912f65e2f814cf4f49947ce2278e7e483857                                                                    0.0s
+=> => exporting manifest list sha256:a4b5377c0b40693e83baaa20230f487b57e18a2c81ae528df3a738b238a8dd5a                                                                           0.0s
+=> => naming to docker.io/library/onbuild:1.0.0                                                                                                                                 0.0s
+=> => unpacking to docker.io/library/onbuild:1.0.0
 
+44.211.29.5 | 172.31.66.223 | t3.micro | https://github.com/maheshbabu22neeli/docker-instruction.git
+[ ec2-user@ip-172-31-66-223 ~/docker-instruction/ONBUILD ]$ cd test
+
+44.211.29.5 | 172.31.66.223 | t3.micro | https://github.com/maheshbabu22neeli/docker-instruction.git
+[ ec2-user@ip-172-31-66-223 ~/docker-instruction/ONBUILD/test ]$ docker build -t onbuild-test:1.0.0 .
+[+] Building 0.4s (6/6) FINISHED                                                                                                                                       docker:default
+=> [internal] load build definition from Dockerfile                                                                                                                             0.1s
+=> => transferring dockerfile: 55B                                                                                                                                              0.0s
+=> [internal] load metadata for docker.io/library/onbuild:1.0.0                                                                                                                 0.0s
+=> [internal] load .dockerignore                                                                                                                                                0.1s
+=> => transferring context: 2B                                                                                                                                                  0.0s
+=> [internal] load build context                                                                                                                                                0.1s
+=> => transferring context: 2B                                                                                                                                                  0.0s
+=> CANCELED [1/1] FROM docker.io/library/onbuild:1.0.0@sha256:a4b5377c0b40693e83baaa20230f487b57e18a2c81ae528df3a738b238a8dd5a                                                  0.1s
+=> => resolve docker.io/library/onbuild:1.0.0@sha256:a4b5377c0b40693e83baaa20230f487b57e18a2c81ae528df3a738b238a8dd5a                                                           0.1s
+=> ERROR [2/2] ONBUILD COPY index.html /usr/share/nginx/html/index.html                                                                                                         0.0s
+------
+> [2/2] ONBUILD COPY index.html /usr/share/nginx/html/index.html:
+------
+Dockerfile:1
+--------------------
+1 | >>> FROM onbuild:1.0.0
+--------------------
+ERROR: failed to build: failed to solve: failed to compute cache key: failed to calculate checksum of ref opgejtm2dqdplgarqidokuo94::dm9xnohyv7n27afbx44c47h8z: "/index.html": not found
+```
 
