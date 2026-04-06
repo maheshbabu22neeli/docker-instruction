@@ -8,3 +8,5 @@ RUN rm -rf /usr/share/nginx/html/index.html
 ONBUILD COPY index.html /usr/share/nginx/html/index.html
 
 CMD ["nginx", "-g", "daemon off;"]
+
+## Ibuild the images as `docker build -t onbuild:1.0.0 .`
