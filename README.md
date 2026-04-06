@@ -278,5 +278,31 @@ Dockerfile:1
 1 | >>> FROM onbuild:1.0.0
 --------------------
 ERROR: failed to build: failed to solve: failed to compute cache key: failed to calculate checksum of ref opgejtm2dqdplgarqidokuo94::dm9xnohyv7n27afbx44c47h8z: "/index.html": not found
+
+
+After adding index.html in test folder, it build is successfull.
+
+44.211.29.5 | 172.31.66.223 | t3.micro | https://github.com/maheshbabu22neeli/docker-instruction.git
+[ ec2-user@ip-172-31-66-223 ~/docker-instruction/ONBUILD/test ]$ docker build -t onbuild-test:1.0.0 .
+[+] Building 0.5s (7/7) FINISHED                                                                                                                                       docker:default
+ => [internal] load build definition from Dockerfile                                                                                                                             0.0s
+ => => transferring dockerfile: 61B                                                                                                                                              0.0s
+ => [internal] load metadata for docker.io/library/onbuild:1.0.0                                                                                                                 0.0s
+ => [internal] load .dockerignore                                                                                                                                                0.0s
+ => => transferring context: 2B                                                                                                                                                  0.0s
+ => [internal] load build context                                                                                                                                                0.0s
+ => => transferring context: 68B                                                                                                                                                 0.0s
+ => [1/1] FROM docker.io/library/onbuild:1.0.0@sha256:a4b5377c0b40693e83baaa20230f487b57e18a2c81ae528df3a738b238a8dd5a                                                           0.1s
+ => => resolve docker.io/library/onbuild:1.0.0@sha256:a4b5377c0b40693e83baaa20230f487b57e18a2c81ae528df3a738b238a8dd5a                                                           0.0s
+ => [2/2] ONBUILD COPY index.html /usr/share/nginx/html/index.html                                                                                                               0.0s
+ => exporting to image                                                                                                                                                           0.2s
+ => => exporting layers                                                                                                                                                          0.1s
+ => => exporting manifest sha256:7ff75c27794ff31a5632c96f4634fc21cdf6958221dda2ebdf1ba2e4acde0b09                                                                                0.0s
+ => => exporting config sha256:ae736085c45411443d49bc223ff781bb4604fe6a3b8e036e8a601460d074f497                                                                                  0.0s
+ => => exporting attestation manifest sha256:3ff2609ae1fe55dffe395ca409c6fb345569d82ce35bee3449728a3341692be4                                                                    0.0s
+ => => exporting manifest list sha256:59ed6abb207a7b3c79590822fa8dde25ef6e0407a200fc8bd9baa3a826f93657                                                                           0.0s
+ => => naming to docker.io/library/onbuild-test:1.0.0                                                                                                                            0.0s
+ => => unpacking to docker.io/library/onbuild-test:1.0.0  
+
 ```
 
